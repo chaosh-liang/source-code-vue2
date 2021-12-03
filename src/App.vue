@@ -17,21 +17,33 @@
       <!-- </template> -->
       <Abc />
     </HelloWorld>
+    <hr />
+    <test-keep-alive />
+    <br />
+    <br />
+    <hr />
+    <div style="margin: 15px 0">
+      <router-link to="/home" style="margin-right: 20px">Home</router-link>
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import Abc from "./components/Abc.vue";
+import TestKeepAlive from "./components/Test-keepalive.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    TestKeepAlive,
     Abc,
   },
   mounted() {
-    console.log("App.vue mounted => ", this);
+    console.log("App.vue mounted => ", this, window.vue);
   },
   methods: {
     userClick(value, ev) {

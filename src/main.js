@@ -1,8 +1,17 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-Vue.config.productionTip = false
+import { Button, Input, Message, Icon } from "element-ui";
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Vue.use(Button);
+Vue.use(Input);
+Vue.use(Icon);
+
+Vue.config.productionTip = false;
+Vue.prototype.$msg = Message;
+
+window.vue = new Vue({
+  render: (h) => h(App),
+  router,
+}).$mount("#app");
