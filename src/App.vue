@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" @user-click="userClick">
+    <div ref="app-div-ref">这是一个普通的 div</div>
+    <HelloWorld
+      ref="hw-ref"
+      msg="Welcome to Your Vue.js App"
+      @user-click="userClick"
+    >
       <!-- v-slot 指令自 Vue 2.6.0 起被引入，提供更好的支持 slot 和 slot-scope attribute 的 API 替代方案 -->
       <!-- v-slot 只能在 template 或 组件标签上使用 -->
 
