@@ -21,6 +21,8 @@
       <!-- <h3 slot="userSlot" class="slot-header">Here might be a Component Abc</h3> -->
       <!-- </template> -->
       <Abc />
+      <Abc />
+      <Abc />
     </HelloWorld>
     <hr />
     <test-keep-alive />
