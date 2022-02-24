@@ -15,14 +15,16 @@
 
       <template #userSlot="{ childSlotMsg }">
         <h3 class="slot-header">
-          Here might be a Component Abc => {{ childSlotMsg }}
+          Here might be a Component HelloWorld data => {{ childSlotMsg }}
         </h3>
       </template>
       <!-- <h3 slot="userSlot" class="slot-header">Here might be a Component Abc</h3> -->
       <!-- </template> -->
-      <Abc />
-      <Abc />
-      <Abc />
+      <template #sloa="{ ap: cusSlot }">
+        <Abc data-a="abc-1" title="abc-11" :cusSlot="cusSlot" />
+        <Abc data-a="abc-2" />
+        <Abc data-a="abc-3" dir="rtl" />
+      </template>
     </HelloWorld>
     <hr />
     <test-keep-alive />
@@ -49,6 +51,15 @@ export default {
     TestKeepAlive,
     Abc,
   },
+  /* beforeCreate() {
+    console.log("App.vue beforeCreate");
+  },
+  created() {
+    console.log("App.vue created");
+  },
+  beforeMount() {
+    console.log("App.vue beforeMount");
+  }, */
   mounted() {
     console.log("App.vue mounted => ", this, window.vue);
   },

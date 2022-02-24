@@ -13,7 +13,13 @@ export default {
     };
   },
   mounted() {
-    console.log("A component => ", this.$router, this.$route, this._routerRoot);
+    console.log(
+      "A component => ",
+      this.$router,
+      this.$route,
+      this._routerRoot,
+      this
+    );
   },
   methods: {
     showMess() {

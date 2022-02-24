@@ -10,7 +10,7 @@ export default {
     };
   },
   mounted() {
-    console.log("About component => ");
+    console.log("About component => ", this);
   },
 };
 </script>

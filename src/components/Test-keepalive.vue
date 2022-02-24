@@ -18,6 +18,9 @@ export default {
       dynamicComp: A,
     };
   },
+  mounted() {
+    console.log("Test-keep-alive component => ", this);
+  },
   methods: {
     switchComp() {
       this.dynamicComp = B;

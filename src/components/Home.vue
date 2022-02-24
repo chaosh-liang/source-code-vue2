@@ -10,7 +10,7 @@ export default {
     };
   },
   mounted() {
-    console.log("Home component => ");
+    console.log("Home component => ", this);
   },
 };
 </script>
