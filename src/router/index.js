@@ -1,36 +1,53 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../components/Home.vue";
-import About from "../components/About.vue";
+import Foo from "../components/Foo.vue";
+import Bar from "../components/Bar.vue";
+import Baz from "../components/Baz.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    redirect: { name: "home" },
+    path: "/foo",
+    name: "foo",
+    component: Foo,
+    children: [
+      {
+        path: "bar",
+        name: "bar",
+        component: Bar,
+      },
+    ],
+    meta: {
+      auth: true,
+    },
   },
   {
-    path: "/home",
-    name: "home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: About,
+    path: "/baz",
+    name: "baz",
+    component: Baz,
+    meta: {
+      cxt: 12345,
+    },
   },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes,
 });
 
-// 全局前置守卫
+// 全局守卫
 router.beforeEach((to, from, next) => {
-  console.log("router -> guarder: ", to, from);
+  console.log("global before each");
+  next();
+});
+router.afterEach(() => {
+  console.log("global after each");
+});
+router.beforeResolve((to, from, next) => {
+  console.log("global before resolve");
   next();
 });
 

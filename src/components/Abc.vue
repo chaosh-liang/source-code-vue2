@@ -8,11 +8,11 @@ export default {
   props: {
     cusSlot: {
       type: String,
-      default: "喵喵",
+      default: "default-msg",
     },
   },
   mounted() {
-    console.log("Abc.vue mounted => ", this, this.cusSlot);
+    // console.log("Abc.vue mounted => ", this, this.cusSlot);
   },
 };
 </script>

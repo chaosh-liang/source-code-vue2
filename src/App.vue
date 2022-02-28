@@ -32,8 +32,8 @@
     <br />
     <hr />
     <div style="margin: 15px 0">
-      <router-link to="/home" style="margin-right: 20px">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/foo" style="margin-right: 20px">Go 2 Foo</router-link>
+      <router-link to="/baz">Go 2 Baz</router-link>
     </div>
     <router-view />
   </div>
