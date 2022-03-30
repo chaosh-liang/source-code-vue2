@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <div ref="app-div-ref">这是一个普通的 div</div>
-    <HelloWorld
+    <hello-world
       ref="hw-ref"
       msg="Welcome to Your Vue.js App"
       @user-click="userClick"
@@ -21,11 +21,17 @@
       <!-- <h3 slot="userSlot" class="slot-header">Here might be a Component Abc</h3> -->
       <!-- </template> -->
       <template #sloa="{ ap: cusSlot }">
-        <Abc data-a="abc-1" title="abc-11" :cusSlot="cusSlot" />
-        <Abc data-a="abc-2" />
-        <Abc data-a="abc-3" dir="rtl" />
+        <Abc
+          :h-age="age"
+          data-a="abc-1"
+          title="abc-11"
+          :cusSlot="cusSlot"
+          :pa="123"
+        />
+        <Abc :h-name="name" data-a="abc-2" :pb="123" />
+        <Abc v-bind="a" data-a="abc-3" dir="rtl" :pc="123" />
       </template>
-    </HelloWorld>
+    </hello-world>
     <hr />
     <test-keep-alive />
     <br />
@@ -50,6 +56,17 @@ export default {
     HelloWorld,
     TestKeepAlive,
     Abc,
+  },
+  data() {
+    return {
+      age: 18,
+      name: "asdf",
+      a: {
+        a: 1,
+        b: 2,
+        c: 3,
+      },
+    };
   },
   /* beforeCreate() {
     console.log("App.vue beforeCreate");

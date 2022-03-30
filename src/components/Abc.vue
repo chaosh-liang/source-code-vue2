@@ -10,8 +10,10 @@ export default {
       type: String,
       default: "default-msg",
     },
+    hName: String,
   },
   mounted() {
+    console.log("props => ", this.props, this.$attrs);
     // console.log("Abc.vue mounted => ", this, this.cusSlot);
   },
 };
