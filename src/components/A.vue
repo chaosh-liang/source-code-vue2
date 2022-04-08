@@ -29,6 +29,7 @@ export default {
         iconClass: "el-icon-headset",
         message: "Message 组件",
       });
+      this.$toast("风来阿兰算法的发");
     },
   },
 };
