@@ -80,6 +80,12 @@ export default {
   mounted() {
     console.log("App.vue mounted => ", this, window.vue);
   },
+  beforeUpdate() {
+    console.log("beforeUpdate => ", this.$route.toString());
+  },
+  updated() {
+    console.log("updated => ", this.$route);
+  },
   methods: {
     userClick(value, ev) {
       console.log("自定义事件 => ", value, ev);

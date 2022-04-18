@@ -4,6 +4,7 @@
     <div @click="clickA" ref="adiv">{{ aaa }}</div>
     <p>{{ bbb }}</p>
     <div class="greeting">{{ greeting }}</div>
+    <el-button type="primary" @click="testS">测试</el-button>
     <div class="block-ul">
       <el-button type="primary" @click="toggleUl">切换显示 ul</el-button>
       <ul v-show="ulShow">
@@ -54,7 +55,8 @@ export default {
     console.log("HelloWorld.vue beforeMount");
   }, */
   mounted() {
-    console.log("HelloWorld.vue mounted => ", this);
+    console.log("HelloWorld.vue mounted => ", this, this._prpos, this._data);
+    console.log("HelloWorld.vue mounted2 => ", this.$router, this.$route);
   },
   computed: {
     greeting() {
@@ -68,6 +70,14 @@ export default {
     toggleUl() {
       this.ulShow = !this.ulShow;
     },
+    testS() {
+      this.mess.name = "haha";
+      // this.$set(this.mess, "np", "xixi");
+      console.log(this);
+      setTimeout(() => {
+        console.log(this);
+      }, 3000);
+    },
     clickA() {
       this.$nextTick().then(() => {
         console.log("nextTick with promise => ", this.$refs.adiv.innerText);
@@ -75,20 +85,30 @@ export default {
       this.$nextTick().then(() => {
         console.log("nextTick with promise 2 => ", this.$refs.adiv.innerText);
       });
-      this.aaa = "hello vue";
-      this.bbb = "hello b1";
+      // this.aaa = "hello vue";
+      // this.bbb = "hello b1";
       this.$nextTick(() => {
         console.log("nextTick => ", this.$refs.adiv.innerText);
       });
       this.aaa = "hello broli";
       this.bbb = "hello b2";
       console.log("sync => ", this.$refs.adiv.innerText);
+      this.$nextTick(() => {
+        console.log("nextTick 2 => ", this.$refs.adiv.innerText);
+      });
       this.$emit("user-click", "somethine stuff");
     },
   },
   watch: {
-    bbb(value) {
-      console.log("user watch => ", value);
+    // bbb: "toggleUl",
+    // bbb(value) {
+    //   console.log("user watch => ", value);
+    // },
+    bbb: {
+      handler(value) {
+        console.log("user watch => ", value);
+      },
+      immediate: true,
     },
   },
 };
