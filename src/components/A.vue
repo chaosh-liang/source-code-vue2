@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: "A-Comp",
   data() {
     return {
       aRandom: "a",

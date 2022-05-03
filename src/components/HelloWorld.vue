@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      aaa: "hello world",
+      aaa: "hello world -aaa",
       bbb: "hello sz",
       name: "Broli",
       ulShow: true,
@@ -55,14 +55,22 @@ export default {
     console.log("HelloWorld.vue beforeMount");
   }, */
   mounted() {
-    console.log("HelloWorld.vue mounted => ", this, this._prpos, this._data);
+    console.log(
+      "HelloWorld.vue mounted => ",
+      this,
+      this.constructor,
+      this._prpos,
+      this._data
+    );
     console.log("HelloWorld.vue mounted2 => ", this.$router, this.$route);
   },
   computed: {
     greeting() {
       return `计算属性：${this.aaa}`;
     },
+    // 只要计算属性不在模板上使用（render函数），就不会被添加到 data 中某个属性的依赖
     greeting2() {
+      console.log("greeting2 改变了");
       return `计算属性2：${this.bbb}`;
     },
   },

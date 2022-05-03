@@ -17,6 +17,7 @@ function showToast(text, duration = 3000) {
   document.body.appendChild(component.$el); // 这里必须是 component.$el
   setTimeout(() => {
     component.show = false;
+    // document.body.removeChild(component.$el);
   }, duration);
 }
 

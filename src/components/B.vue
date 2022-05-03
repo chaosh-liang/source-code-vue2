@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: "B-Comp",
   data() {
     return {
       bRandom: "b",

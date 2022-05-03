@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Foo from "../components/Foo.vue";
+// import Foo from "../components/Foo.vue";
 import Bar from "../components/Bar.vue";
 import Baz from "../components/Baz.vue";
 
@@ -10,7 +10,8 @@ const routes = [
   {
     path: "/foo",
     name: "foo",
-    component: Foo,
+    component: () =>
+      import(/* webpackChunkName: "Foo-chunka" */ "../components/Foo.vue"),
     children: [
       {
         path: "bar",
