@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import * as m from "./m2.js";
 export default {
   name: "HelloWorld-Name",
   props: {
@@ -45,15 +46,15 @@ export default {
       ],
     };
   },
-  /* beforeCreate() {
-    console.log("HelloWorld.vue beforeCreate");
-  },
+  beforeCreate() {
+    console.log("HelloWorld.vue beforeCreate", this);
+  } /* 
   created() {
     console.log("HelloWorld.vue created");
   },
   beforeMount() {
     console.log("HelloWorld.vue beforeMount");
-  }, */
+  }, */,
   mounted() {
     console.log(
       "HelloWorld.vue mounted => ",
@@ -63,6 +64,7 @@ export default {
       this._data
     );
     console.log("HelloWorld.vue mounted2 => ", this.$router, this.$route);
+    console.log("m module => ", m);
   },
   computed: {
     greeting() {

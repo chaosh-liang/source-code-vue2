@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // import Foo from "../components/Foo.vue";
 import Bar from "../components/Bar.vue";
-import Baz from "../components/Baz.vue";
+// import Baz from "../components/Baz.vue";
 
 Vue.use(VueRouter);
 
@@ -26,7 +26,8 @@ const routes = [
   {
     path: "/baz",
     name: "baz",
-    component: Baz,
+    component: () =>
+      import(/* webpackChunkName: "Baz-chunkb" */ "../components/Baz.vue"),
     meta: {
       cxt: 12345,
     },
